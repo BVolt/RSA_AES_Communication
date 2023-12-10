@@ -2,7 +2,6 @@ from Crypto.PublicKey import RSA
 from Crypto.Random import get_random_bytes
 from Crypto.Cipher import AES, PKCS1_OAEP
 from Crypto.Hash import SHA256, HMAC
-import base64
 
 def read_message(file_name):
     with open(file_name, 'r') as file:
