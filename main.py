@@ -1,6 +1,6 @@
-from generateKey import generate
-from encrypt import encrypt
-from decrypt import decrypt  
+from generateKey import *
+from encrypt import *
+from decrypt import *
 
 def main():
     generate("Alice")

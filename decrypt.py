@@ -9,6 +9,10 @@ def load_private_key(private_key_path):
         private_key = RSA.import_key(f.read())
     return private_key
 
+def load_mac_key(recipient):
+    with open("./keys/mac_key.bin", 'rb') as f:
+        return f.read()
+
 def decrypt_aes_key(encrypted_aes_key, private_key):
     cipher_rsa = PKCS1_OAEP.new(private_key)
     aes_key = cipher_rsa.decrypt(encrypted_aes_key)
@@ -39,7 +43,7 @@ def decrypt(transmitted_data_path, private_key_path):
         transmitted_data[-32:]
     )
 
-    mac_key = get_random_bytes(16)  # Use a suitable key for your MAC algorithm
+    mac_key = load_mac_key(recipient)
 
     aes_key = decrypt_aes_key(encrypted_aes_key, private_key)
 
