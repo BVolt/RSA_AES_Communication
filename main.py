@@ -3,7 +3,7 @@ from encrypt import *
 from decrypt import *
 import sys, os
 
-def getCommand():
+def get_command():
     if len(sys.argv) == 1: # If no commands were given prompt for one
         inp = input(">> ")
         args = inp.split()
@@ -15,14 +15,14 @@ def getCommand():
 
     return command, args
 
-def genDemoKeys():
+def gen_demo_keys():
     # Create keys for Alice and Bob if they do not exist
     if not os.path.exists('keys/AlicePrivate.pem') or not os.path.exists('keys/AlicePublic.pem'):
         generate("Alice")
     if not os.path.exists('keys/BobPrivate.pem') or not os.path.exists('keys/BobPublic.pem'):
         generate("Bob")
 
-def executeCommand(command, args):
+def execute_command(command, args):
     match command: # Switch based on command
         case "generate":
             if len(args) < 1:
@@ -44,9 +44,9 @@ def executeCommand(command, args):
 
 
 def main():
-    command, args = getCommand() # Get Command Line arguments or prompt if none are provided
-    genDemoKeys() # Generate Alice and Bob RSA keys if they do not exist
-    executeCommand(command, args) # Execute the given command with arguements
+    command, args = get_command() # Get Command Line arguments or prompt if none are provided
+    gen_demo_keys() # Generate Alice and Bob RSA keys if they do not exist
+    execute_command(command, args) # Execute the given command with arguements
 
 
 if __name__ == "__main__":

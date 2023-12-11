@@ -1,6 +1,6 @@
 from Crypto.PublicKey import RSA
 
-
+# Function for generating RSA public private key pair
 def generate(name):
     key = RSA.generate(2048) # Generate Key pair
     
