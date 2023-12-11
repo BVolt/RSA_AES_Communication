@@ -51,4 +51,4 @@ def encrypt(file_name, recipient):
     mac_key = generate_mac_key("./keys/mac_key.bin")
     mac = create_mac(ciphertext, mac_key)
 
-    write_encrypted_data("encrypted.bin", aes_key_enc, nonce, tag, ciphertext, mac)
+    write_encrypted_data("Transmitted_Data.bin", aes_key_enc, nonce, tag, ciphertext, mac)
